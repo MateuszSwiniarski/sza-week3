@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<h1> Registration page</h1>
+
+<p th:text="${details}"></p>
+</br>
+<form th:action="@{/register}" method="post">
+    <label for="username">Username</label>:
+    <input type="text" id="username" name="username"/><br/>
+<!--    <label for="email">email</label>:-->
+<!--    <input type="email" id="email" name="email"/> <br/>-->
+    <label for="password">Password</label>:
+    <input type="password" id="password"  name="password"/><br/>
+    <select name="role">
+        <option th:each="roles : ${T( com.rodzyn.szaweek3.model.Role).values()}"
+                th:value="${roles}" th:text="${roles.name}" >
+        </option>
+    </select>
+    <input type="submit" value="Sign up"/>
+</form>
+
+
+</body>
+</html>
